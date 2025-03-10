@@ -2,9 +2,15 @@
 
 set -e  # Exit immediately if a command exits with a non-zero status
 
-# Install dotnet via brew if not installed
-if ! command -v dotnet &> /dev/null; then
-    brew install dotnet@8
+temp=$(mktemp)
+rm -f "$temp"
+mkdir "$temp"
+cd "$temp"
+
+# Install dotnet via brew
+brew install dotnet@8
+if [ ! -e /opt/homebrew/bin/dotnet8 ]; then
+  ln -s "$(brew --prefix dotnet@8)/bin/dotnet" /opt/homebrew/bin/dotnet8
 fi
 
 # Clone the repository
