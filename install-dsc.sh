@@ -21,13 +21,13 @@ git clone "$REPO_URL" "$REPO_DIR" || true
 cd "$REPO_DIR"
 
 # Restore dependencies
-dotnet restore src/all.sln
+dotnet8 restore src/all.sln
 
 # Publish endpointmanager
-dotnet publish src/endpointmanager -c Release
+dotnet8 publish src/endpointmanager -c Release
 
 # Publish dsc and capture output
-PUBLISH_DIR=$(dotnet publish src/dsc --self-contained=true -c Release /p:PublishSingleFile=true -r osx-arm64 | tail -1 | grep "dsc ->" | awk '{print $3}')
+PUBLISH_DIR=$(dotnet8 publish src/dsc --self-contained=true -c Release /p:PublishSingleFile=true -r osx-arm64 | tail -1 | grep "dsc ->" | awk '{print $3}')
 printf "%s\n\n" "$PUBLISH_DIR"
 
 if [ -z "$PUBLISH_DIR" ]; then
