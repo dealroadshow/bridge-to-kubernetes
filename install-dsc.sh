@@ -8,8 +8,8 @@ if ! command -v dotnet &> /dev/null; then
 fi
 
 # Clone the repository
-REPO_URL="git@github.com:Azure/Bridge-To-Kubernetes.git"
-REPO_DIR="Bridge-To-Kubernetes"
+REPO_URL="git@github.com:dealroadshow/bridge-to-kubernetes.git"
+REPO_DIR="bridge-to-kubernetes"
 
 git clone "$REPO_URL" "$REPO_DIR" || true
 cd "$REPO_DIR"

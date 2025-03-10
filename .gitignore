@@ -351,3 +351,5 @@ MigrationBackup/
 .ionide/
 
 /Bridge-To-Kubernetes
+/bridge-to-kubernetes
+/.idea
