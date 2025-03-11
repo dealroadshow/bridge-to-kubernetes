@@ -2,9 +2,7 @@
 
 set -e  # Exit immediately if a command exits with a non-zero status
 
-temp=$(mktemp)
-rm -f "$temp"
-mkdir "$temp"
+temp=$(mktemp -d)
 cd "$temp"
 
 # Install dotnet via brew
