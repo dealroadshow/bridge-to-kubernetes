@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Threading;
 using Microsoft.BridgeToKubernetes.Common.Exceptions;
 using Microsoft.BridgeToKubernetes.Common.IO;
@@ -427,8 +428,16 @@ namespace Microsoft.BridgeToKubernetes.Common.Kubernetes
             }
             else if (this._platform.IsOSX)
             {
-                directoryName = ExecutableLocation.OSX.Directory;
-                executableName = ExecutableLocation.OSX.Name;
+                string dscExecutablePath = Process.GetCurrentProcess().MainModule.FileName;
+                string dscDirectory = Path.GetDirectoryName(dscExecutablePath);
+                string privateKubectlPath = Path.Combine(dscDirectory, "kubectl", "osx", "kubectl");
+
+                if (File.Exists(privateKubectlPath))
+                {
+                    return privateKubectlPath;
+                }
+
+                return "kubectl"; // Fallback to system PATH
             }
             else if (this._platform.IsLinux)
             {
