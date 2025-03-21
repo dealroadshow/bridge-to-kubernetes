@@ -353,3 +353,4 @@ MigrationBackup/
 /Bridge-To-Kubernetes
 /bridge-to-kubernetes
 /.idea
+/src/.idea

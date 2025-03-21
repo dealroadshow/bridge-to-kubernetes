@@ -30,7 +30,7 @@ ENV MINDARO_BUILD_NUMBER=${MindaroBuildNumber}
 RUN dotnet publish -c ${Configuration} -o /src/publish
 
 # Final container
-FROM mcr.microsoft.com/dotnet/aspnet:7.0-alpine3.17 as final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine3.18 as final
 
 # Setup common tools
 COPY /build/setup-alpine-tools.sh .
