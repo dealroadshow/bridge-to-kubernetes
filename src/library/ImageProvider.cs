@@ -22,11 +22,11 @@ namespace Microsoft.BridgeToKubernetes.Library
 
         private static readonly IReadOnlyDictionary<ReleaseEnvironment, string> ContainerRegistries = new Dictionary<ReleaseEnvironment, string>()
             {
-                { ReleaseEnvironment.Production, "bridgetok8s.azurecr.io" },
-                { ReleaseEnvironment.Staging, "mindarostage.azurecr.io" },
-                { ReleaseEnvironment.Development, "mindarodev.azurecr.io" },
-                { ReleaseEnvironment.Local, "mindarodev.azurecr.io" },
-                { ReleaseEnvironment.Test, "mindarodev.azurecr.io" }
+                { ReleaseEnvironment.Production, "docker.io" },
+                { ReleaseEnvironment.Staging, "docker.io" },
+                { ReleaseEnvironment.Development, "docker.io" },
+                { ReleaseEnvironment.Local, "docker.io" },
+                { ReleaseEnvironment.Test, "docker.io" }
             };
 
         internal static class DevHost
@@ -66,7 +66,7 @@ namespace Microsoft.BridgeToKubernetes.Library
 
             public static string Version => _tag.Value;
 
-            internal static string Name => $"lpkrestorationjob:{_tag.Value}";
+            internal static string Name => $"petrbuchinfin/lpkrestorationjob:{_tag.Value}";
         }
 
         private static class RoutingManager

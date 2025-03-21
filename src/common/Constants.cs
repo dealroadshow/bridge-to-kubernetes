@@ -218,7 +218,7 @@ namespace Microsoft.BridgeToKubernetes.Common
 
         internal static class ImageName
         {
-            public const string RemoteAgentImageName = "lpkremoteagent";
+            public const string RemoteAgentImageName = "petrbuchinfin/lpkremoteagent";
         }
 
         internal static class Https
